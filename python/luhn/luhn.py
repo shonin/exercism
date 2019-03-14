@@ -1,8 +1,10 @@
 class Luhn(object):
     def __init__(self, card_num):
         self.card_num = card_num.replace(" ", "")
-        self.card_num = self.double_every_second()
-
+        try:
+            self.card_num = self.double_every_second()
+        except ValueError:
+            self.card_num = "0"
 
     def double_every_second(self):
         new_card_num = ""
