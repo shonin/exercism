@@ -1,18 +1,16 @@
 class Luhn(object):
     def __init__(self, card_num):
         self.card_num = card_num.replace(" ", "")
-        
 
     def double_every_second(self):
         new_card_num = ""
         for i, char in enumerate(self.card_num[::-1]): # [::-1] reverses a string
+            char = int(char)
             if i % 2 == 1:
-                double = int(char) * 2
-                if double > 9:
-                    double -= 9
+                double = char * 2 if char < 9 else char * 2 - 9
                 new_card_num += str(double)
             else:
-                new_card_num += char
+                new_card_num += str(char)
 
         return new_card_num[::-1]
 
