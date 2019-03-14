@@ -15,7 +15,6 @@ class Luhn(object):
             else:
                 new_card_num += char
 
-        print("new card num:", new_card_num[::-1])
         return new_card_num[::-1]
 
 
@@ -23,16 +22,14 @@ class Luhn(object):
         sum = 0
         for char in self.card_num:
             sum += int(char)
-        print("sum:", sum)
         return sum
 
     def is_valid(self):
         if len(self.card_num) < 2:
             return False
-        if self.card_num == "055 444 286":
+        try:
+            if self.sum_of_digits() % 10 == 0:
+                return True
             return False
-        if self.card_num == "8273 1232 7352 0569":
+        except ValueError:
             return False
-        if self.sum_of_digits() % 10 == 0:
-            return True
-        return False
