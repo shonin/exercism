@@ -1,6 +1,8 @@
 class Luhn(object):
     def __init__(self, card_num):
-        pass
+        self.card_num = card_num
 
     def is_valid(self):
-        pass
+        if len(self.card_num) < 2:
+            return False
+        return True
