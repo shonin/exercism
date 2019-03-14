@@ -17,19 +17,15 @@ class LuhnTest(unittest.TestCase):
     def test_a_simple_valid_SIN_that_remains_valid_if_reversed(self):
         self.assertIs(Luhn("059").is_valid(), True)
 
-    @unittest.skip
     def test_a_simple_valid_SIN_that_becomes_invalid_if_reversed(self):
         self.assertIs(Luhn("59").is_valid(), True)
 
-    @unittest.skip
     def test_a_valid_Canadian_SIN(self):
         self.assertIs(Luhn("055 444 285").is_valid(), True)
 
-    @unittest.skip
     def test_invalid_Canadian_SIN(self):
         self.assertIs(Luhn("055 444 286").is_valid(), False)
 
-    @unittest.skip
     def test_invalid_credit_card(self):
         self.assertIs(Luhn("8273 1232 7352 0569").is_valid(), False)
 
