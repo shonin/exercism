@@ -41,27 +41,21 @@ class LuhnTest(unittest.TestCase):
     def test_valid_strings_with_punctuation_included_become_invalid(self):
         self.assertIs(Luhn("055-444-285").is_valid(), False)
 
-    @unittest.skip
     def test_valid_strings_with_symbols_included_become_invalid(self):
         self.assertIs(Luhn("055£ 444$ 285").is_valid(), False)
 
-    @unittest.skip
     def test_single_zero_with_space_is_invalid(self):
         self.assertIs(Luhn(" 0").is_valid(), False)
 
-    @unittest.skip
     def test_more_than_a_single_zero_is_valid(self):
         self.assertIs(Luhn("0000 0").is_valid(), True)
 
-    @unittest.skip
     def test_input_digit_9_is_correctly_converted_to_output_digit_9(self):
         self.assertIs(Luhn("091").is_valid(), True)
 
-    @unittest.skip
     def test_strings_with_non_digits_is_invalid(self):
         self.assertIs(Luhn(":9").is_valid(), False)
 
-    @unittest.skip
     def test_is_valid_can_be_called_repeatedly(self):
         # Additional track specific test case
         # This test was added, because we saw many implementations
