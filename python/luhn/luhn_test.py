@@ -35,7 +35,6 @@ class LuhnTest(unittest.TestCase):
     def test_valid_strings_with_a_non_digit_included_become_invalid(self):
         self.assertIs(Luhn("055a 444 285").is_valid(), False)
 
-    @unittest.skip
     def test_valid_strings_with_non_digit_added_at_end_become_invalid(self):
         self.assertIs(Luhn("059a").is_valid(), False)
 
